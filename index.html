@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT MP4/MP3 Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 id="header">
+            This is a YT mp4/mp3 downloader
+        </h1>
+    </header>
+    <main>
+        <div id="Submit">
+            <div>
+                <h2>Enter URL of the video</h2>
+                <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=example">
+                <p id="error-message"></p>
+            </div>
+
+            <div id="typeSelectButtons">
+                <h2>Select type of the file</h2>
+                <label for="mp3"> mp3</label>
+                <input type="radio" id="mp3" value="mp3" name="type">
+                <label for="mp4"> mp4</label>
+                <input type="radio" id="mp4" value="mp4" name="type">
+            </div>
+
+            <button id="downloadButton">Find</button>
+            <div id="videoPreview" style="margin-top: 20px;"></div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+    
+    <script src="index.js"></script>
+</body>
+</html>

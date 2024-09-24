@@ -1,0 +1,79 @@
+/* Existing styles */
+body {
+    background-color: blanchedalmond;
+    font-family: "Roboto Mono", Verdana, Geneva, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+#header {
+    font-size: 2em;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+#Submit {
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: margin-top 0.3s ease; /* Smooth transition for margin-top */
+}
+
+#Submit.preview-visible {
+    margin-top: 60px; /* Adjust this value as needed */
+}
+
+#typeSelectButtons {
+    margin-bottom: 20px;
+    display: none;
+}
+
+input[type="radio"] {
+    margin: 0 10px;
+}
+
+input[type="url"] {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+#downloadButton {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#downloadButton:hover {
+    background-color: #555;
+}
+
+#error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
