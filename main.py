@@ -5,6 +5,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
+#For mac startup
+# import ssl
+# import urllib.request
+
+# ssl._create_default_https_context = ssl._create_unverified_context 
 
 app = FastAPI()
 

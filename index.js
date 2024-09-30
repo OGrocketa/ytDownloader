@@ -25,7 +25,7 @@ document.getElementById("downloadButton").onclick = async function(event) {
         try {
             console.log("Starting download...");
 
-            const filename = await initDownloadFile(videoUrl,selectedFormat);
+            const filename = initDownloadFile(videoUrl,selectedFormat);
 
             console.log("Download finishid serving the file...");
 
