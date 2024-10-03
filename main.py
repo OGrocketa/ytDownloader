@@ -61,6 +61,7 @@ def delete_file(file_path: str):
 
 @app.post("/start-download")
 async def download_endpoint(request: downloadRequest, background_task: BackgroundTasks):
+
     url = request.url
     file_format = request.file_format
 
@@ -73,12 +74,8 @@ async def download_endpoint(request: downloadRequest, background_task: Backgroun
         filename = os.path.basename(file_path)
 
     except Exception as e:
-        file_path = await download(url,file_format)
-        filename = os.path.basename(file_path)
-        print("Trying 2nd time")
-        pass
-
-    return {"message":"File donwloaded to server", "filename": filename}
+        print(e)
+    return {"filename": filename}
 
     # Serve the file directly
     

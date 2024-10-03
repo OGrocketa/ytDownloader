@@ -25,7 +25,7 @@ document.getElementById("downloadButton").onclick = async function(event) {
         try {
             console.log("Starting download...");
 
-            const filename = initDownloadFile(videoUrl,selectedFormat);
+            const filename = await initDownloadFile(videoUrl,selectedFormat);
 
             console.log("Download finishid serving the file...");
 
@@ -115,7 +115,7 @@ async function initDownloadFile(videoUrl, selectedFormat){
         throw new Error(`Error: ${response.statusText}`);
     }
 
-    const data = await response.json();
+    const data = response.json();
     return data.filename;
 }
 
