@@ -48,7 +48,7 @@ def file_iterator(file_path, chunk_size=1024*1024):
 def delete_file(file_path: str):
     try:
         os.remove(file_path)
-        print(f"Deleted file: {file_path}")
+        
     except FileNotFoundError:
         print(f"File not found for deletion: {file_path}")
 
