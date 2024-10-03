@@ -5,12 +5,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
-#For mac startup
-# import ssl
-# import urllib.request
-
-# ssl._create_default_https_context = ssl._create_unverified_context 
-
 app = FastAPI()
 
 DOWNLOAD_DIR = "downloads"
@@ -32,7 +26,7 @@ async def download(url: str, file_format: str):
         file_path = audio.download(filename=f"{title}.mp3",output_path=DOWNLOAD_DIR)
         
     file_size = get_file_size(file_path)
-    print(f"Downloaded {file_format}: {yt.title} ({file_size:.2f} MB)")
+    
 
     return file_path
 
@@ -77,16 +71,13 @@ async def download_endpoint(request: downloadRequest, background_task: Backgroun
         print(e)
     return {"filename": filename}
 
-    # Serve the file directly
-    
-    
 
+# Serve the file directly
 @app.get("/serve-file/{filename}")
 async def serve_file(filename:str, background_task: BackgroundTasks):
-    print(filename)
-    print("serving file")
+
     file_path = os.path.join(DOWNLOAD_DIR, filename)
-    print(file_path)
+
     if not os.path.exists(file_path):
         raise HTTPException(status_code=404, detail="File not found")
     
@@ -103,4 +94,4 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)
+)   
