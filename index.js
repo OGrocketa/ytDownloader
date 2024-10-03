@@ -24,12 +24,12 @@ document.getElementById("downloadButton").onclick = async function(event) {
         // Make a request to download the file
         try {
             console.log("Starting download...");
-
+            //TUT NLYA FILENAME NEPRAWILNO VOZVRASZAJET CHUJ!!!
             const filename = await initDownloadFile(videoUrl,selectedFormat);
 
             console.log("Download finishid serving the file...");
-
-            serveFile(filename, selectedFormat);
+            console.log(filename);
+            await serveFile(filename, selectedFormat);
             
             screenReset(videoPreview,typeSelectButtons,button,submitDiv);
            
@@ -115,12 +115,13 @@ async function initDownloadFile(videoUrl, selectedFormat){
         throw new Error(`Error: ${response.statusText}`);
     }
 
-    const data = response.json();
+    const data = await response.json();
     return data.filename;
 }
 
 // Function to fetch and download the file after it has been prepared
 async function serveFile(filename, selectedFormat) {
+    console.log(filename);
     const response = await fetch(`http://127.0.0.1:8000/serve-file/${filename}`);
 
     if (!response.ok) {

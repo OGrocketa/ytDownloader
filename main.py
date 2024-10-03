@@ -83,9 +83,10 @@ async def download_endpoint(request: downloadRequest, background_task: Backgroun
 
 @app.get("/serve-file/{filename}")
 async def serve_file(filename:str, background_task: BackgroundTasks):
+    print(filename)
     print("serving file")
     file_path = os.path.join(DOWNLOAD_DIR, filename)
-
+    print(file_path)
     if not os.path.exists(file_path):
         raise HTTPException(status_code=404, detail="File not found")
     
